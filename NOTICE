@@ -1,0 +1,46 @@
+# NOTICE
+
+This software incorporates code and libraries from several open-source projects. Below is the list of these projects, their licenses, and appropriate attribution.
+
+## CuPy
+- **License**: MIT License (https://opensource.org/licenses/MIT)
+- **Copyright**: Copyright (c) Preferred Networks, Inc.
+
+## NumPy
+- **License**: BSD 3-Clause License (https://opensource.org/licenses/BSD-3-Clause)
+- **Copyright**: Copyright (c) NumPy Developers.
+
+## Matplotlib
+- **License**: PSF License Agreement for Matplotlib (https://matplotlib.org/stable/users/project.html#license)
+- **Copyright**: Copyright (c) Matplotlib Development Team.
+
+## Numba
+- **License**: BSD 2-Clause License (https://opensource.org/licenses/BSD-2-Clause)
+- **Copyright**: Copyright (c) Anaconda, Inc.
+
+## OpenCV
+- **License**: Apache License 2.0 (https://www.apache.org/licenses/LICENSE-2.0)
+- **Copyright**: Copyright (c) 2000-2024, OpenCV team.
+
+## Pillow (PIL)
+- **License**: HPND License (https://opensource.org/licenses/HPND)
+- **Copyright**: Copyright (c) 1995-2011 by Secret Labs AB.
+  Copyright (c) 1997-2011 by Fredrik Lundh.
+
+## psutil
+- **License**: BSD 3-Clause License (https://opensource.org/licenses/BSD-3-Clause)
+- **Copyright**: Copyright (c) Giampaolo Rodola.
+
+---
+
+### Python Standard Library Modules
+The following libraries are part of the Python Standard Library, distributed under the Python Software Foundation License:
+- `os`
+- `tkinter`
+- `gc`
+- `re`
+- `datetime`
+- `webbrowser`
+
+For details about the Python Software Foundation License, see their official documentation (https://docs.python.org/3/license.html).
+
