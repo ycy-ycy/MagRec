@@ -54,7 +54,7 @@ bCropped = cp.copy(bExp)
 bCroppedRMS = np.sqrt(cp.sum(bCropped**2)/bCropX/bCropY/3)
 
 mPixelX, mPixelY, NofP, listX, listY, mRes = 1,1,1,np.array([]),np.array([]),np.array([])
-mAVG = bCroppedRMS * distance**3 * 2e7 / NofP
+mAVG = bCroppedRMS * abs(distance)**3 * 2e7 / NofP
 weight = np.array([])
 regionLoaded = False
 
@@ -189,7 +189,7 @@ def setScale():
     distanceLabel.config(text="distance=%s"%(str(distance) if len(str(distance))<=7 else "{:.1e}".format(distance)))
     xShiftLabel.config(text="xShift=%s"%(str(xShift) if len(str(xShift))<=9 else "{:.3e}".format(xShift)))
     yShiftLabel.config(text="yShift=%s"%(str(yShift) if len(str(yShift))<=9 else "{:.3e}".format(yShift)))
-    mAVG = bCroppedRMS * distance**3 * 2e7 / NofP
+    mAVG = bCroppedRMS * abs(distance)**3 * 2e7 / NofP
     AGenerated = False
     ACheckVar.set(0)
 
@@ -267,7 +267,7 @@ def loadB():
         croppedRMSLabel.config(text="ROI RMS=%s"%("{:.4e}".format(float(bCroppedRMS))))
         bCropXLabel.config(text="ROI width=%s"%(bCropX))
         bCropYLabel.config(text="ROI height=%s"%(bCropY))
-        mAVG = bCroppedRMS * distance**3 * 2e7 / NofP
+        mAVG = bCroppedRMS * abs(distance)**3 * 2e7 / NofP
         ASizeLabel.config(text="size(est.): %.2fGB"%(72*bCropX*bCropY*NofP/1024/1024/1024))
         AGenerated = False
         ACheckVar.set(0)
@@ -465,7 +465,7 @@ def bCropping():
         croppedRMSLabel.config(text="ROI RMS=%s"%("{:.4e}".format(bCroppedRMS)))
         bCropXLabel.config(text="ROI width=%s"%(bCropX))
         bCropYLabel.config(text="ROI height=%s"%(bCropY))
-        mAVG = bCroppedRMS * distance**3 * 2e7 / NofP
+        mAVG = bCroppedRMS * abs(distance)**3 * 2e7 / NofP
         ASizeLabel.config(text="size(est.): %.2fGB"%(72*bCropX*bCropY*NofP/1024/1024/1024))
         AGenerated = False
         ACheckVar.set(0)
@@ -756,7 +756,7 @@ def regionAllocate():
         weight[listX[-1],listY[-1]] = 1
     listX, listY = np.array(listX), np.array(listY)
     mRes = cp.zeros(shape=(NofP,3),dtype=cp.float64)
-    mAVG = bCroppedRMS * distance**3 * 2e7 / NofP
+    mAVG = bCroppedRMS * abs(distance)**3 * 2e7 / NofP
     mPixelXLabel.config(text="M width pixel=%s"%(mPixelX), width=14)
     mPixelYLabel.config(text="M height pixel=%s"%(mPixelY), width=14)
     mPixelNLabel.config(text="region pixel=%s"%(NofP), width=14)
@@ -798,7 +798,7 @@ def regionLoad():
         listY.append(points[i][1])
     listX, listY = np.array(listX), np.array(listY)
     mRes = cp.zeros(shape=(NofP,3),dtype=cp.float64)
-    mAVG = bCroppedRMS * distance**3 * 2e7 / NofP
+    mAVG = bCroppedRMS * abs(distance)**3 * 2e7 / NofP
     mPixelXLabel.config(text="M width pixel=%s"%(mPixelX), width=14)
     mPixelYLabel.config(text="M height pixel=%s"%(mPixelY), width=14)
     mPixelNLabel.config(text="region pixel=%s"%(NofP), width=14)
@@ -1882,7 +1882,7 @@ DO NOT SET ZERO IF YOU WANT IT TO CHANGE!""")
         distanceLabel.config(text="distance=%s"%(str(distance) if len(str(distance))<=7 else "{:.1e}".format(distance)))
         xShiftLabel.config(text="xShift=%s"%(str(xShift) if len(str(xShift))<=9 else "{:.3e}".format(xShift)))
         yShiftLabel.config(text="yShift=%s"%(str(yShift) if len(str(yShift))<=9 else "{:.3e}".format(yShift)))
-        mAVG = bCroppedRMS * distance**3 * 2e7 / NofP
+        mAVG = bCroppedRMS * abs(distance)**3 * 2e7 / NofP
         ACheckVar.set(0)
 
         setFitWindow.destroy()
@@ -1974,7 +1974,7 @@ filetypes=[("Text files", "*.txt"), ("All files", "*.*")])
                                  listY=listY)
         matrixA = cp.asarray(matrixAnp*1e-7)
         del matrixAnp
-        mAVG = bCroppedRMS * distance**3 * 2e7 / NofP
+        mAVG = bCroppedRMS * abs(distance)**3 * 2e7 / NofP
         mRes = cp.zeros(shape=(NofP,3),dtype=cp.float64)
         cSet = -1
         parList = [item for item in pars.split('\n') if item!='']
@@ -2015,7 +2015,7 @@ filetypes=[("Text files", "*.txt"), ("All files", "*.*")])
                                  listY=listY)
         matrixA = cp.asarray(matrixAnp*1e-7)
         del matrixAnp
-        mAVG = bCroppedRMS * distance**3 * 2e7 / NofP
+        mAVG = bCroppedRMS * abs(distance)**3 * 2e7 / NofP
         mRes = cp.zeros(shape=(NofP,3),dtype=cp.float64)
         cSet = -1
         parList = [item for item in pars.split('\n') if item!='']
@@ -2061,7 +2061,7 @@ filetypes=[("Text files", "*.txt"), ("All files", "*.*")])
                                  listY=listY)
         matrixA = cp.asarray(matrixAnp*1e-7)
         del matrixAnp
-        mAVG = bCroppedRMS * distance**3 * 2e7 / NofP
+        mAVG = bCroppedRMS * abs(distance)**3 * 2e7 / NofP
         mRes = cp.zeros(shape=(NofP,3),dtype=cp.float64)
         cSet = -1
         parList = [item for item in pars.split('\n') if item!='']
@@ -2126,7 +2126,7 @@ filetypes=[("Text files", "*.txt"), ("All files", "*.*")])
     del matrixAnp
     AGenerated = True
     ACheckVar.set(1)
-    mAVG = bCroppedRMS * distance**3 * 2e7 / NofP
+    mAVG = bCroppedRMS * abs(distance)**3 * 2e7 / NofP
     mRes = cp.zeros(shape=(NofP,3),dtype=cp.float64)
     cSet = -1
     parList = [item for item in pars.split('\n') if item!='']
